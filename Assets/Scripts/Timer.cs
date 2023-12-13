@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI startText;
     public TextMeshProUGUI timerText;
 
-
+    private bool inRange;
     void Start()
     {
         targetTimer = GameObject.Find("TargetSpawner").GetComponent<SpawnTarget>();
@@ -44,21 +44,43 @@ public class Timer : MonoBehaviour
 
     }
 
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            inRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            inRange = false;
+            startText.gameObject.SetActive(false);
+        }
+    }
+
+
     private void OnMouseDown()
     {
-        if (timerState == false)
+        if (timerState == false && inRange)
         {
             score = GameObject.Find("UI").GetComponent<Score>();
             score.ResetScore();
             targetTimer.timerActive = true;
+            timerState = true;
+            timerText.gameObject.SetActive(true);
         }
-        timerState = true;
-        timerText.gameObject.SetActive(true);
     }
 
     private void OnMouseOver()
     {
-        startText.gameObject.SetActive(true);
+        if (inRange)
+        {
+            startText.gameObject.SetActive(true);
+        }
     }
 
     private void OnMouseExit()

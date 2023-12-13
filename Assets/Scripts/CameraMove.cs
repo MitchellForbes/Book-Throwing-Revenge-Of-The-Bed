@@ -1,28 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CameraMove : MonoBehaviour
 {
 
     public Transform player;
 
-    public float mouseSensitivity = 2f;
+    public float mouseSensitivity = 100f;
     float cameraVerticalRotation = 0f;
 
-
+    public TextMeshProUGUI sensNumber;
 
     private void Start()
     {
+        mouseSensitivity = 100f * 10;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        sensNumber.text = mouseSensitivity.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float inputX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float inputY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        float inputX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float inputY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
 
         cameraVerticalRotation -= inputY;
@@ -33,5 +36,12 @@ public class CameraMove : MonoBehaviour
 
 
 
+    }
+
+    public void SensitivitySlider(float sens)
+    {
+        sens = Mathf.Round(sens * 100) / 100;
+        mouseSensitivity = sens * 10;
+        sensNumber.text = sens.ToString();
     }
 }

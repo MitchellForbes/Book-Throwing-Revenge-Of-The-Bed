@@ -5,7 +5,7 @@ using TMPro;
 
 public class Instructions : MonoBehaviour
 {
-
+    private bool inRange;
 
 
     public TextMeshProUGUI instructionsText;
@@ -22,9 +22,30 @@ public class Instructions : MonoBehaviour
         
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            inRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            inRange = false;
+            instructionsText.gameObject.SetActive(false);
+        }
+    }
+
     private void OnMouseOver()
     {
-        instructionsText.gameObject.SetActive(true);
+        if (inRange) 
+        {
+            instructionsText.gameObject.SetActive(true);
+        }
+            
     }
 
     private void OnMouseExit()

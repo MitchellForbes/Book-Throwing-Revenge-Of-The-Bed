@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour
     bool timerState = false;
     Score score;
     SpawnTarget targetTimer;
+    Trace traceTimer;
 
 
     public TextMeshProUGUI startText;
@@ -21,6 +22,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         targetTimer = GameObject.Find("TargetSpawner").GetComponent<SpawnTarget>();
+        traceTimer = GameObject.Find("Trace").GetComponent<Trace>();
 
     }
     // Update is called once per frame
@@ -92,5 +94,15 @@ public class Timer : MonoBehaviour
     private void TimerTextChange()
     {
         timerText.text = string.Format("Time Left: {00}", Mathf.Floor(timer));
+    }
+
+    public void TraceTimer()
+    {
+
+    }
+
+    public void FlickTimer()
+    {
+
     }
 }

@@ -6,7 +6,7 @@ public class SpawnTarget : MonoBehaviour
 {
 
     public int counter;
-    public GameObject bedTarget;
+    public List<GameObject> bedTarget = new List<GameObject>();
 
     private GameObject[] Beds;
 
@@ -24,8 +24,10 @@ public class SpawnTarget : MonoBehaviour
         {
             if (counter < 3)
             {
+                int ran = Random.Range(0, bedTarget.Count);
+
                 var position = new Vector3(Random.Range(-40, 40), Random.Range(10, 20), Random.Range(28, 48));
-                Instantiate(bedTarget, position, Quaternion.Euler(new Vector3(90, 180, 0)));
+                Instantiate(bedTarget[ran], position, Quaternion.Euler(90f, 180f, 0));
                 counter += 1;
             }
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4366756, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667555, g: 0.48427176, b: 0.5645241, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2498,13 +2498,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910190059}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 14.63, z: 37.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &1910190061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2518,7 +2518,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: 0
-  bedTarget: {fileID: 3233336805951110382, guid: 4933ddc3c21a98b409aca8622c20bc30, type: 3}
+  bedTarget:
+  - {fileID: 3233336805951110382, guid: 4933ddc3c21a98b409aca8622c20bc30, type: 3}
+  - {fileID: 3450982035978137567, guid: 3430c7b55a2f0754a84ac20be46e3b28, type: 3}
+  - {fileID: 1522264609045410303, guid: 54afd11823cb1f940af6d93c3e58fb5c, type: 3}
   timerActive: 0
 --- !u!1 &1976986989 stripped
 GameObject:
